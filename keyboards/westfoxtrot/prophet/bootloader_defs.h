@@ -1,4 +1,4 @@
-_/* Address for jumping to bootloader on STM32 chips. */
+/* Address for jumping to bootloader on STM32 chips. */
 /* It is chip dependent, the correct number can be looked up here (page 175):
  * http://www.st.com/web/en/resource/technical/document/application_note/CD00167594.pdf
  * This also requires a patch to chibios:
