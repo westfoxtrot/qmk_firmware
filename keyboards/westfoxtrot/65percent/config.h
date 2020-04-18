@@ -4,7 +4,7 @@
 
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0x21FF
-#define PRODUCT_ID      0xAA03
+#define PRODUCT_ID      0xAA06
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    westfoxtrot
 #define PRODUCT         65percent
