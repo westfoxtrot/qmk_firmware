@@ -14,7 +14,7 @@ NKRO_ENABLE = yes	    # USB Nkey Rollover
 CUSTOM_MATRIX = no # Custom matrix file
 BACKLIGHT_ENABLE = yes
 RGBLIGHT_ENABLE = yes
-WS2812_DRIVER = spi
+WS2812_DRIVER = bitbang
 
 # Enter lower-power sleep mode when on the ChibiOS idle thread
 OPT_DEFS += -DCORTEX_ENABLE_WFI_IDLE=TRUE
