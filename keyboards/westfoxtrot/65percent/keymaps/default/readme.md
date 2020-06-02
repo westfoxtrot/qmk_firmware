@@ -1,1 +1,1 @@
-# The default keymap for prophet
+# The default keymap for 65percent PCB
