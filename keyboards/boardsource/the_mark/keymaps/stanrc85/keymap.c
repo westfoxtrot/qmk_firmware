@@ -53,9 +53,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 void rgb_matrix_indicators_user(void) {
   uint8_t layer = get_highest_layer(layer_state);
   switch (layer) {
-    case _QWERTY:
-      rgb_matrix_set_color(10, 0, 0, 0); 
-      break;
     case _FN1_60:
       rgb_matrix_set_color(10, 0, 0, 255); 
       break;
@@ -80,10 +77,10 @@ void matrix_init_kb(void){
   g_led_config = (led_config_t){ {
     // Key Matrix to LED Index
     { 10    , 10    , 9     , 9     , 8     , 7     , 7     , 6     , 5     , 5     , 4     , 3     , 3     , 2     , 1     , 1      },
-    { NO_LED, 11    , NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, 0     , 1      },
-    { NO_LED, 12    , NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, 23    , 1      },
-    { NO_LED, 13    , 14    , NO_LED, 15    , 16    , NO_LED, 17    , 18    , NO_LED, 19    , 20    , NO_LED, 21    , 22    , NO_LED },
-    { NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED },
+    { 11    , 11    , 9     , 9     , 8     , 7     , 7     , 6     , 5     , 5     , 4     , 3     , 3     , 2     , 0     , 1      },
+    { 12    , 12    , 9     , 9     , 8     , 7     , 7     , 6     , 5     , 5     , 4     , 3     , 3     , 2     , 23    , 1      },
+    { 13    , 13    , 14    , 14    , 15    , 16    , 16    , 17    , 18    , 18    , 19    , 20    , 20    , 21    , 22    , 22     },
+    { 13    , 13    , 14    , 14    , 15    , 16    , 16    , 17    , 18    , 18    , 19    , 20    , 20    , 21    , 22    , 22     },
   }, {
     // LED Index to Physical Position
     {224, 42}, {224, 21}, {209, 21}, {179, 21}, {164, 21}, {134, 21}, {119, 21}, {89, 21}, {74, 21}, {45, 21}, {30, 21}, {30, 42},
