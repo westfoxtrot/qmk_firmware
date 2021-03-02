@@ -32,6 +32,13 @@ static const pin_t col_pins[MATRIX_COLS] = MATRIX_COL_PINS;
 extern matrix_row_t raw_matrix[MATRIX_ROWS];  // raw values
 extern matrix_row_t matrix[MATRIX_ROWS];      // debounced values
 
+static inline void setPinOutput_writeHigh(pin_t pin) {
+    ATOMIC_BLOCK_FORCEON {
+        setPinOutput(pin);
+        writePinHigh(pin);
+    }
+}
+
 static inline void setPinOutput_writeLow(pin_t pin) {
     ATOMIC_BLOCK_FORCEON {
         setPinOutput(pin);
@@ -82,11 +89,11 @@ static bool read_cols_on_row(matrix_row_t current_matrix[], uint8_t current_row)
 
 static void select_row(uint8_t row) { setPinOutput_writeLow(row_pins[row]); }
 
-static void unselect_row(uint8_t row) { setPinInputHigh_atomic(row_pins[row]); }
+static void unselect_row(uint8_t row) { setPinOutput_writeHigh(row_pins[row]); }
 
 static void unselect_rows(void) {
     for (uint8_t x = 0; x < MATRIX_ROWS; x++) {
-        setPinInputHigh_atomic(row_pins[x]);
+        setPinOutput_writeHigh(row_pins[x]);
     }
 }
 
