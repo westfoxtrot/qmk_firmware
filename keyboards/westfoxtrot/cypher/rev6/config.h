@@ -4,66 +4,58 @@
 
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0x21FF
-#define PRODUCT_ID      0xAA98
-#define DEVICE_VER      0x0001
+#define PRODUCT_ID      0xAA99
+#define DEVICE_VER      0x0002
 #define MANUFACTURER    westfoxtrot
 #define PRODUCT         cypher
 #define DESCRIPTION     QMK Firmware for rev6 Cypher PCB
 
 /* key matrix size */
-#define MATRIX_ROWS 5
-#define MATRIX_COLS 19
+#define MATRIX_ROWS 10
+#define MATRIX_COLS 10
 
 /*
  * Keyboard Matrix Assignments
+ *
+ * Change this to how you wired your keyboard
+ * COLS: AVR pins used for columns, left to right
+ * ROWS: AVR pins used for rows, top to bottom
+ * DIODE_DIRECTION: COL2ROW = COL = Anode (+), ROW = Cathode (-, marked on diode)
+ *                  ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
+ *
 */
-#define MATRIX_ROW_PINS { A14, A15, B3, B11, B10 }
-#define MATRIX_COL_PINS { A10, A9, A8, B4, B5, B6, B2, B1, B0, A5, A4, A3, A2, A1, A13, C15, C14, C13, A0 }
+#define MATRIX_ROW_PINS { B0, F1, F5, F6, F7, D1, F4, D4, C6, C7 }
+#define MATRIX_COL_PINS { D6, D7, B4, B5, B6, B7, B3, B2, B1, F0 }
 #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL, or CUSTOM_MATRIX */
 #define DIODE_DIRECTION COL2ROW
 
-#define BACKLIGHT_PIN           A6
-#define BACKLIGHT_ON_STATE      1
-#define BACKLIGHT_PWM_DRIVER    PWMD3
-#define BACKLIGHT_PWM_CHANNEL   1
-#define BACKLIGHT_PAL_MODE      1
-#define BACKLIGHT_LEVELS 6
 #define BACKLIGHT_BREATHING
-#define BREATHING_PERIOD 6
+#define BACKLIGHT_LEVELS 5
 
-/* define if matrix has ghost */
-//#define MATRIX_HAS_GHOST
-
-/* Set 0 if debouncing isn't needed */
-#define DEBOUNCE    5
+/* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
+#define DEBOUNCE 5
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
 
-#define RGBLIGHT_ANIMATIONS
-#define RGB_DI_PIN B15
-#define RGBLED_NUM 20
-#define WS2812_SPI SPID2
-#define WS2812_SPI_MOSI_PAL_MODE 0
-
-/*
- * Feature disable options
- *  These options are also useful to firmware size reduction.
+/* If defined, GRAVE_ESC will always act as ESC when CTRL is held.
+ * This is userful for the Windows task manager shortcut (ctrl+shift+esc).
  */
+#define GRAVE_ESC_CTRL_OVERRIDE
 
-/* disable debug print */
-//#define NO_DEBUG
+#define BACKLIGHT_PIN D0
 
-/* disable print */
-//#define NO_PRINT
-
-/* disable action features */
-//#define NO_ACTION_LAYER
-//#define NO_ACTION_TAPPING
-//#define NO_ACTION_ONESHOT
-//#define NO_ACTION_MACRO
-//#define NO_ACTION_FUNCTION
+#define RGB_DI_PIN E6
+#ifdef RGB_DI_PIN
+   #define RGBLED_NUM 10
+   #define RGBLIGHT_HUE_STEP 12
+   #define RGBLIGHT_SAT_STEP 25
+   #define RGBLIGHT_VAL_STEP 12
+   #define RGBLIGHT_LIMIT_VAL 255
+   #define RGBLIGHT_SLEEP
+   #define RGBLIGHT_ANIMATIONS
+#endif
