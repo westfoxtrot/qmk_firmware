@@ -7,8 +7,8 @@
 #define PRODUCT_ID      0xAA09
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    cablecardesigns
-#define PRODUCT         ccd65/atmega
-#define DESCRIPTION     QMK Firmware for the ccd65/atmega series PCBs
+#define PRODUCT         ccd65/atmel
+#define DESCRIPTION     QMK Firmware for the ccd65/atmel series PCBs
 
 /* key matrix size */
 #define MATRIX_ROWS 5
